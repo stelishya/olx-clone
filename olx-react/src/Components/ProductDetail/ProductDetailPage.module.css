@@ -1,0 +1,227 @@
+.productDetailPage {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  
+  .breadcrumb {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .mainContent {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .leftColumn {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .rightColumn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Image Gallery */
+  .imageGallery {
+    position: relative;
+    background-color: #000;
+  }
+  
+  .imageGallery img {
+    width: 100%;
+    display: block;
+  }
+  
+  .navButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  .prevButton { left: 10px; }
+  .nextButton { right: 10px; }
+  
+  .imageActions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 15px;
+    color: white;
+    font-size: 20px;
+  }
+  
+  /* Product Info Sections */
+  .productInfo, .overview, .description {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 4px;
+  }
+  
+  .verifiedSeller {
+      background-color: #d4edda;
+      color: #155724;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 10px;
+  }
+  
+  .productInfo h1 {
+    font-size: 24px;
+    margin: 0 0 5px 0;
+  }
+  
+  .subTitle {
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+  .specs {
+    display: flex;
+    gap: 20px;
+    color: #555;
+  }
+  
+  .overview h2, .description h2, .relatedAds h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+  }
+  
+  .overviewDetails {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .overviewDetails > div {
+    text-align: center;
+  }
+  
+  .description p {
+    line-height: 1.6;
+  }
+  
+  /* Right Column Cards */
+  .priceCard, .sellerCard, .adInfo {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 4px;
+    text-align: center;
+  }
+  
+  .priceCard h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #002f34;
+  }
+  
+  .offerButton, .chatButton {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .offerButton {
+    background-color: #002f34;
+    color: white;
+  }
+  
+  .sellerCard .sellerInfo {
+      display: flex;
+      align-items: center;
+      text-align: left;
+      margin-bottom: 15px;
+      justify-content: space-between;
+  }
+  
+  .sellerCard img {
+      border-radius: 50%;
+      margin-right: 15px;
+  }
+  
+  .chatButton {
+    background-color: white;
+    color: #002f34;
+    border: 2px solid #002f34;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .showNumber {
+    color: #002f34;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .adInfo {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+  }
+  
+  .adInfo a {
+      color: #002f34;
+  }
+  
+  /* Related Ads & Links */
+  .relatedAds, .relatedLinks {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: 20px;
+  }
+  
+  .adsCarousel {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto; /* Basic carousel */
+  }
+  
+  .adCard {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+    min-width: 200px;
+  }
+  
+  .adCard img { width: 100%; }
+  
+  .relatedLinks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+  }
+  
+  .relatedLinks a {
+      background-color: #ebeeef;
+      padding: 8px 12px;
+      border-radius: 15px;
+      text-decoration: none;
+      color: #002f34;
+      font-size: 14px;
+  }
