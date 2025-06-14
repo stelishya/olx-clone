@@ -3,6 +3,10 @@ import Signup from './Pages/Signup'
 import Login from './Pages/Login'
 import Create from './Pages/Create'
 import View from './Pages/ViewPost'
+import ProductDetailPage from './Components/ProductDetail/ProductDetailPage.jsx'
+import MyAdsPage from './Components/MyAds/MyAdsPage';
+
+
 import { useContext, useEffect } from 'react'
 import { AuthContext } from './context/firebaseContext'
 import { onAuthStateChanged } from 'firebase/auth'
@@ -17,6 +21,8 @@ const router = createBrowserRouter([
     { path: "/login", element: <Login /> },
     { path: "/create", element: <Create /> },
     { path: "/view", element: <View /> },
+    { path: "/product/:id", element: <ProductDetailPage /> },
+    { path: "/my-ads", element: <MyAdsPage /> },
 ]);
 
 function App() {

@@ -1,14 +1,16 @@
 .loginWrapper {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #f7f8f9;
+  padding-left:50px;
 }
 
 .loginParentDiv {
   background: white;
   width: 360px;
+  /* margin-left: 40%; */
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);

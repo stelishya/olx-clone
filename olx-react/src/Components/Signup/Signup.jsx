@@ -24,7 +24,7 @@ export default function Signup() {
   });
   
   const [errors, setErrors] = useState({});
-  // const [spinner, setSpinner] = useState(false);
+  const [spinner, setSpinner] = useState(false);
   const navigate = useNavigate();
 
   const validate = () => {

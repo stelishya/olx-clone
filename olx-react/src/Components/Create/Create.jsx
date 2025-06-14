@@ -99,10 +99,10 @@ const Create = () => {
         <>
           <div className="product-upload-wrapper">
             <div className="product-upload-card">
+                <h2 className="product-upload-title">POST YOUR AD</h2>
               <form onSubmit={HandleSubmit}>
-                <h2 className="product-upload-title">Upload Product</h2>
 
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name">Ad title *</label>
                 <input
                   className="product-input"
                   type="text"
@@ -112,7 +112,7 @@ const Create = () => {
                   placeholder="Enter product name"
                 />
                 {errors.Name && <p className="error-text">{errors.Name}</p>}
-
+                 <hr/>
                 <label htmlFor="category">Category</label>
                 <input
                   className="product-input"
@@ -125,8 +125,9 @@ const Create = () => {
                 {errors.category && (
                   <p className="error-text">{errors.category}</p>
                 )}
-
-                <label htmlFor="price">Price</label>
+                <hr />
+                <h3 style={{marginBottom:"10px",fontSize:"25px",color:"#000"}}>SET A PRICE</h3>
+                <label htmlFor="price">Price*</label>
                 <input
                   className="product-input"
                   type="number"
@@ -136,7 +137,8 @@ const Create = () => {
                   placeholder="Enter price"
                 />
                 {errors.Price && <p className="error-text">{errors.Price}</p>}
-
+                <hr />
+                <h3 style={{marginBottom:"10px",fontSize:"25px",color:"#000"}}>UPLOAD UP TO 12 PHOTOS</h3>
                 {productImage && (
                   <div className="product-image-preview">
                     <img
@@ -154,9 +156,9 @@ const Create = () => {
                   type="file"
                 />
                 {errors.Image && <p className="error-text">{errors.Image}</p>}
-
+                <hr />
                 <button type="submit" className="product-upload-btn">
-                  Upload and Submit
+                  Post Now
                 </button>
               </form>
             </div>

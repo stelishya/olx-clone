@@ -74,6 +74,7 @@ function Header() {
 
           {user && (
             <div className="dropdownContent">
+              <p onClick={()=>navigate('/my-ads')}>My Ads</p>
               <p onClick={HandleLogout}>Logout</p>
             </div>
           )}

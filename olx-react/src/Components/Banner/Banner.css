@@ -1,7 +1,7 @@
 .bannerParentDiv {
   padding-top: 4em;
   width: 100%;
-  background-color: #f8f8f8;
+  background-color: #ffffff;
 }
 
 .bannerChildDiv {
@@ -13,8 +13,9 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding: 10px 16px;
-  gap: 12px;
+  padding: 10px 20px;
+  width:100%;
+  /* gap: 2px; */
 }
 
 .categoryMenu {
@@ -24,7 +25,7 @@
   cursor: pointer;
   font-size: 16px;
   color: #002f34;
-  gap: 6px;
+  gap: 5px;
 }
 
 .otherQuickOptions {
@@ -38,17 +39,17 @@
   background-color: #fff;
   padding: 8px 12px;
   border-radius: 20px;
-  font-size: 14px;
-  color: #002f34;
-  border: 1px solid #ccc;
+  font-size: 15px;
+  color: #000000;
+  /* border: 1px solid #ccc; */
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .otherQuickOptions span:hover {
-  background-color: #002f34;
-  color: white;
-  border-color: #002f34;
+  /* background-color: #002f34; */
+  color: rgb(45, 44, 44);
+  /* border-color: #002f34; */
 }
 
 .banner {

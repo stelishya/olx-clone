@@ -1,12 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
-
-import Heart from "../../assets/Heart";
-import "./Posts.css";
+import { Link } from 'react-router-dom';
 import { PostContext } from "../../context/postContext";
 import { useNavigate } from "react-router-dom";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../firebase/config";
 import { BeatLoader } from "react-spinners";
+
+import Heart from "../../assets/Heart";
+import MenuBar from "../Banner/MenuBar";
+// import { collection, getDocs } from "firebase/firestore";
+// import { db } from "../../firebase/config";
+import "./Posts.css";
 
 
 function Posts() {
@@ -17,22 +19,49 @@ function Posts() {
   const [spinner, setSpinner] = useState(false);
 
   useEffect(() => {
-    async function fetchProducts() {
+    async function fetchDummyProducts() {
       try {
         setSpinner(true);
-        const snapshot = await getDocs(collection(db, "products"));
-        const products = snapshot.docs.map((product) => ({
-          id: product.id,
-          ...product.data(),
+        const res = await fetch("https://dummyjson.com/products");
+        const data = await res.json();
+  
+        const formatted = data.products.map((item) => ({
+          id: item.id,
+          Name: item.title,
+          Price: item.price,
+          category: item.category,
+          ImageURL: item.thumbnail,
+          createdAt: { seconds: Math.floor(Date.now() / 1000) } // fake timestamp
         }));
+  
+        setProducts(formatted);
         setSpinner(false);
-        setProducts(products);
       } catch (error) {
-        console.log(error);
+        console.log("Failed to fetch products", error);
+        setSpinner(false);
       }
     }
-    fetchProducts();
+  
+    fetchDummyProducts();
   }, []);
+  
+  // useEffect(() => {
+  //   async function fetchProducts() {
+  //     try {
+  //       setSpinner(true);
+  //       const snapshot = await getDocs(collection(db, "products"));
+  //       const products = snapshot.docs.map((product) => ({
+  //         id: product.id,
+  //         ...product.data(),
+  //       }));
+  //       setSpinner(false);
+  //       setProducts(products);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  //   fetchProducts();
+  // }, []);
 
   function HandleView(product) {
     setPostDetails(product);
@@ -40,6 +69,7 @@ function Posts() {
   }
   return (
     <>
+    <MenuBar/>
       {spinner ? (
         <div className="spinner">
           <BeatLoader color="#4d7068" />
@@ -48,16 +78,17 @@ function Posts() {
         <div className="postParentDiv">
           <div className="moreView">
             <div className="heading">
-              <span>Quick Menu</span>
+              {/* <span>Quick Menu</span> */}
+              <span>Fresh Recommendations</span>
            
 
-              <span>View more</span>
+              {/* <span>View more</span> */}
             </div>
             <div className="cards">
               {products.map((pro) => (
+                <Link to={`/product/${pro.id}`} key={pro.id} className="card-link">
+
                 <div
-                  key={pro.id}
-                  onClick={() => HandleView(pro)}
                   className="card"
                 >
                   <div className="favorite">
@@ -79,8 +110,10 @@ function Posts() {
                     </span>
                   </div>
                 </div>
+                </Link>
               ))}
             </div>
+            <button className="loadMoreBtn">Load more</button>
           </div>
         </div>
       )}
