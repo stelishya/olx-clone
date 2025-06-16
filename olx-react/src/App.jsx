@@ -5,7 +5,7 @@ import Create from './Pages/Create'
 import View from './Pages/ViewPost'
 import ProductDetailPage from './Components/ProductDetail/ProductDetailPage.jsx'
 import MyAdsPage from './Components/MyAds/MyAdsPage';
-
+import ProtectedRoute from './Components/ProtectedRoute';
 
 import { useContext, useEffect } from 'react'
 import { AuthContext } from './context/firebaseContext'
@@ -19,10 +19,34 @@ const router = createBrowserRouter([
     { path: "/", element: <Home /> },
     { path: "/signup", element: <Signup /> },
     { path: "/login", element: <Login /> },
-    { path: "/create", element: <Create /> },
-    { path: "/view", element: <View /> },
-    { path: "/product/:id", element: <ProductDetailPage /> },
-    { path: "/my-ads", element: <MyAdsPage /> },
+    { path: "/create", 
+        element: (
+            <ProtectedRoute>
+                <Create />
+            </ProtectedRoute>
+        ) 
+},
+    { path: "/view", 
+        element: (
+            <ProtectedRoute>
+                <View />
+            </ProtectedRoute>
+        ) 
+},
+    { path: "/product/:id", 
+        element: (
+            <ProtectedRoute>
+                <ProductDetailPage />
+            </ProtectedRoute>
+        )  
+},
+    { path: "/my-ads", 
+        element: (
+            <ProtectedRoute>
+                <MyAdsPage />
+            </ProtectedRoute>
+        ) 
+},
 ]);
 
 function App() {

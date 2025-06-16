@@ -1,7 +1,7 @@
 import Logo from "../../assets/olx-logo.svg";
 import "./Login.css"
-import {useState,useContext} from "react"
-import {Link,useNavigate} from "react-router-dom"
+import {useState,useContext,useEffect} from "react"
+import {Link,useNavigate,useLocation} from "react-router-dom"
 import { signInWithEmailAndPassword as loginUser } from "firebase/auth";
 import {auth} from "../../firebase/config.js";
 import { FirebaseContext } from "../../context/firebaseContext";
@@ -19,7 +19,10 @@ function Login(){
     const [errors, setErrors] = useState({});
     const [spinner, setSpinner] = useState(false);
     const navigate = useNavigate();
+    const location = useLocation();
     const { setUserData } = useContext(FirebaseContext);
+
+    const from = location.state?.from || '/';
 
       const validation = () => {
     const err = {};
@@ -54,7 +57,7 @@ function Login(){
           if (userData) {
             console.log("userData",userData);
             setUserData(userData);
-            navigate("/", { replace: true });
+            navigate(from, { replace: true });
             setSpinner(false);
             toast.success("Successully Logged In");
           }
